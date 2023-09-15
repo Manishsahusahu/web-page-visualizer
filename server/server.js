@@ -1,12 +1,19 @@
 require("dotenv").config();
 const express = require("express");
 const seoRoute = require("./routes/seo.route");
+const cors = require("cors");
 
 const app = express();
 app.use(express.json());
 
 const PORT = process.env.PORT || 5001;
 
+app.use(
+  cors({
+    origin: "http://localhost:5173",
+    credentials: true,
+  })
+);
 app.use("/api", seoRoute);
 
 app.get("/", (req, res) => {
