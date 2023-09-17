@@ -17,13 +17,21 @@ function App() {
     console.log(enteredUrl);
   };
 
+  const checkInputUrl = function () {
+    return true;
+  };
+
   const handleClick = async function () {
+    if (enteredUrl === "") {
+      console.log('Input url is empty!')
+      return ;
+    }
     setTimer(35);
     console.log("entered url is ", enteredUrl);
-    const dataResponse = await getSeoData(enteredUrl);
-    console.log("dataResponse is", dataResponse);
+    // const dataResponse = await getSeoData(enteredUrl);
+    // console.log("dataResponse is", dataResponse);
     // // localStorage.setItem("seoData", JSON.stringify(dataResponse));
-    // const dataResponse = JSON.parse(localStorage.getItem("seoData"));
+    const dataResponse = JSON.parse(localStorage.getItem("seoData"));
     console.log(dataResponse);
     const data = dataResponse.data.data[0].result[0];
 
@@ -72,6 +80,7 @@ function App() {
                 type="text"
                 value={enteredUrl}
                 onChange={(e) => handleChange(e)}
+                required={true}
               />
             </div>
           </div>

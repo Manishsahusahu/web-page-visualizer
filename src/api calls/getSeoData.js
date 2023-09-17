@@ -2,7 +2,7 @@ import axios from "axios";
 
 const getSeoData = async function (targetUrl) {
   try {
-    const response = await axios.post("http://localhost:5001/api/seodetails", {
+    const response = await axios.post("https://api-call.up.railway.app/api/seodetails", {
       targetUrl,
     });
     return response;
