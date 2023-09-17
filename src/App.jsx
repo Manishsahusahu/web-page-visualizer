@@ -46,7 +46,7 @@ function App() {
   }, [timer]);
 
   const waitString = (
-    <h3 className="font-bold">
+    <h3 className="font-bold text-center">
       Wait <span className="text-2xl">{timer}</span> seconds! Results are being
       prepared...
     </h3>
